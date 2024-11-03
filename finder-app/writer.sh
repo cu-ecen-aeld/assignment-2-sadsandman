@@ -7,12 +7,10 @@ Directory=$(dirname "$writefile")
 if [ -z "$writefile" ] || [ -z "$writestr" ] 
 then
 	exit 1
-elif [ ! -z $(mkdir -p $Directory) ] || [ ! -z $(echo $writestr>$writefile) ]
-then	
+elif ! mkdir -p "$Directory";
+then 
 	exit 1
 else
-	$(mkdir -p $Directory)
-	$(echo $writestr>$writefile)
+	echo "$writestr">"$writefile"
 	
 fi
-
